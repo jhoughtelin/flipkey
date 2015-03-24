@@ -14,9 +14,11 @@ class FlipKey
     public function getProperty($propertyCode)
     {
         $result = $this->client->get($propertyCode);
-        if($result) {
-            return $this->client->detail;
+
+        if(!$result) {
+            return false;
         }
-        return false;
+
+        return new Property($this->client->detail);
     }
 }

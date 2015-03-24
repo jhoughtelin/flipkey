@@ -31,30 +31,6 @@ class Client
         return $this->response->isSuccessful();
     }
 
-    public function post( $uri, array $options = array() )
-    {
-        /** @var $request \Guzzle\Http\Message\Request */
-        $request = $this->client->post( $uri, array(), '', array( 'exceptions' => false ) );
-        foreach ($options as $key => $value) {
-            $request->setPostField( $key, $value );
-        }
-        return $this->process( $request );
-    }
-
-    public function put( $uri, array $options )
-    {
-        $version = isset( $options['version'] ) ? $options['version'] : '1';
-        if ( ! is_numeric( $version )) {
-            throw new InvalidIntegerArgumentException();
-        }
-        $request = $this->client->put( $uri, array(), '', array( 'exceptions' => false ) );
-        unset( $options['id'] );
-        foreach ($options as $key => $value) {
-            $request->setPostField( $key, $value );
-        }
-        return $this->process( $request );
-    }
-
     public function get( $uri, array $parameters = array() )
     {
         $request = $this->client->get( $uri, array(), array( 'exceptions' => false ) );
@@ -63,11 +39,5 @@ class Client
         }
         $this->process( $request );
         return $this->response->xml();
-    }
-
-    public function delete( $uri )
-    {
-        $request = $this->client->delete( $uri, array(), '', array( 'exceptions' => false ) );
-        return $this->process( $request );
     }
 }
