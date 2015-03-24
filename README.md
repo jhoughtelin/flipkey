@@ -23,6 +23,7 @@ In order to use this Library you'll need to know your FlipKey API Key, Remote ID
 $apiKey = "FlipKey API Key Goes Here";
 $remoteId = "Remote ID Goes Here";
 $propertyCode = "Property Code Goes Here";
+
 $flipkey = new FlipKey\FlipKey($apiKey,$remoteId);
 $property = $flipkey->getProperty($propertyCode);
 print_r($property);
