@@ -16,16 +16,16 @@ $ composer require gueststream/flipkey
 
 ## Usage
 
+In order to use this Library you'll need to know your FlipKey API Key, Remote ID and the Property Code 
+(or flipkey ID for the given property)
+
 ``` php
+$apiKey = "FlipKey API Key Goes Here";
+$remoteId = "Remote ID Goes Here";
+$propertyCode = "Property Code Goes Here";
 $flipkey = new FlipKey\FlipKey($apiKey,$remoteId);
 $property = $flipkey->getProperty($propertyCode);
 print_r($property);
-```
-
-## Testing
-
-``` bash
-$ phpunit
 ```
 
 ## Contributing
