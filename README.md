@@ -11,7 +11,7 @@ This is a simple FlipKey data API wrapper written in PHP.
 Via Composer
 
 ``` bash
-$ composer require flipkey/flipkey
+$ composer require gueststream/flipkey
 ```
 
 ## Usage
